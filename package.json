@@ -1,0 +1,26 @@
+{
+  "name": "clear",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeticiaAldaco/team_OOPs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LeticiaAldaco/team_OOPs/issues"
+  },
+  "homepage": "https://github.com/LeticiaAldaco/team_OOPs#readme",
+  "dependencies": {
+    "inquirer": "^8.1.0",
+    "jest": "^26.6.3"
+  }
+}
