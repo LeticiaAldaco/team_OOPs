@@ -1,6 +1,10 @@
 const inquirer = require("inquirer");
-const { type } = require("os");
-const Employee = require("./lib/Employee");
+const Manager = require("./lib/Manager");
+const Engineer = require("./lib/Engineer");
+const Intern = require("./lib/Intern");
+const generateHtml = require("./src/generateHtml");
+const fs = require("fs");
+const employeeArr = [];
 
 const baseQuestions = [
   {
@@ -55,7 +59,13 @@ const createManager = () => {
       },
     ])
     .then((responses) => {
-      console.log(responses);
+      const newManager = new Manager(
+        responses.name,
+        responses.id,
+        responses.email,
+        responses.officeNumber
+      );
+      employeeArr.push(newManager);
       addEmployee();
     });
 };
@@ -70,7 +80,13 @@ const createEngineer = () => {
       },
     ])
     .then((responses) => {
-      console.log(responses);
+      const newEngineer = new Engineer(
+        responses.name,
+        responses.id,
+        responses.email,
+        responses.github
+      );
+      employeeArr.push(newEngineer);
       addEmployee();
     });
 };
@@ -85,7 +101,13 @@ const createIntern = () => {
       },
     ])
     .then((responses) => {
-      console.log(responses);
+      const newIntern = new Intern(
+        responses.name,
+        responses.id,
+        responses.email,
+        responses.school
+      );
+      employeeArr.push(newIntern);
       addEmployee();
     });
 };
@@ -101,6 +123,8 @@ const addEmployee = () => {
     .then((responses) => {
       if (responses.addEmployee) {
         initializeQuestions();
+      } else {
+        fs.writeFileSync("./dist/index.html", generateHtml());
       }
     });
 };
